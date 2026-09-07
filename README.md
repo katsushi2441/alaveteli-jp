@@ -1,81 +1,31 @@
-# Welcome to Alaveteli!
+# alaveteli-jp
 
-[![CI](https://img.shields.io/github/actions/workflow/status/mysociety/alaveteli/ci.yml?label=CI)](http://github.com/mysociety/alaveteli/actions?query=workflow%3ACI)
-[![RuboCop](https://img.shields.io/github/actions/workflow/status/mysociety/alaveteli/rubocop.yml?label=RuboCop)](https://github.com/mysociety/alaveteli/actions?query=workflow%3ARuboCop)
-[![Coverage Status](https://img.shields.io/coveralls/github/mysociety/alaveteli/develop)](https://coveralls.io/r/mysociety/alaveteli)
-[![Code Climate](https://img.shields.io/codeclimate/maintainability-percentage/mysociety/alaveteli)](https://codeclimate.com/github/mysociety/alaveteli)
-[![Installability: Gold](http://img.shields.io/badge/installability-gold-ffd700.svg "Installability: Gold")](http://mysociety.github.io/installation-standards.html)
+[Alaveteli](https://github.com/mysociety/alaveteli)（英国 mySociety が開発する、情報公開請求をオンラインで行い、請求文と行政機関からの回答を公開するオープンソース。英国 WhatDoTheyKnow の中身。AGPL-3.0）を **日本語で使うための非公式リポジトリ** です。
 
-This is an open source project to create a standard, internationalised
-platform for making Freedom of Information (FOI) requests in different
-countries around the world. The software started off life as
-[WhatDoTheyKnow](https://www.whatdotheyknow.com), a website produced by
-[mySociety](http://mysociety.org) for making FOI requests in the UK.
+- `locale/ja/app.po` — 本家 `app.pot`（1,553 文字列）の日本語訳。プレースホルダ（`{{name}}`・HTMLタグ・URL・改行）は原文と同一であることを機械検証済み
+- `docker-compose.override.yml` — 公式の開発用 Docker にポートを足したもの
+- `scripts/translate_po_gemma.py` — 未訳エントリをローカルLLM（gemma4）で訳し、プレースホルダ不一致を不採用にする翻訳スクリプト
 
-We hope that by joining forces between teams across the world, we can
-all work together on producing the best possible software, and help
-move towards a world where governments approach transparency as the
-norm, rather than the exception.
+本家への翻訳提案は mySociety の方針どおり Transifex 経由が正式ルートです。あわせて本リポジトリの `jp` ブランチから Pull Request を出しています。本家に取り込まれた分は本家の翻訳が正となり、本リポジトリは差分の保守にとどめます。
 
-Please join our [developers mailing list](https://groups.google.com/group/alaveteli-dev)
-and introduce yourself, or drop a line to hello@alaveteli.org to let us know
-that you're using Alaveteli.
+**本リポジトリは mySociety および Alaveteli プロジェクトとは無関係の非公式なものです。** 日本の情報公開法・各自治体の情報公開条例に沿った運用は、導入する団体の責任で行ってください。
 
-There's lots of useful information and documentation (including a blog)
-on [the project website](http://alaveteli.org). There's background
-information and notes on [our
-wiki](https://github.com/mysociety/alaveteli/wiki/Home/), and upgrade
-notes in the [`doc/`
-folder](https://github.com/mysociety/alaveteli/tree/master/doc/CHANGES.md).
+## 使い方（Docker・開発用構成）
 
-## Installing
+```bash
+git clone https://github.com/katsushi2441/alaveteli-jp.git
+cd alaveteli-jp
+./docker/setup          # 初回のみ（イメージ構築・gem・DB）
+# config/general.yml で AVAILABLE_LOCALES: "ja en" / DEFAULT_LOCALE: ja にする
+./docker/server
+```
 
-We've been working hard to make Alaveteli easy to install and re-use anywhere. Please
-see [the project website](http://alaveteli.org) for instructions on installing Alaveteli.
+`http://<ホスト>:18383/` で日本語の Alaveteli が開きます。
 
-## Compatibility
+## 解説記事
 
-Every Alaveteli commit is tested by GitHub Actions on the [following Ruby platforms](https://github.com/mysociety/alaveteli/blob/develop/.github/workflows/ci.yml#L27-L29):
+- 導入と日本語化の実録: https://katsushi2441.github.io/vwork/articles/2026-09-07-alaveteli-japanese-guide.html
 
-* `ruby-3.4`
+## ライセンス
 
-If you use a ruby version management tool (such as RVM or `.rbenv`) and want to use the default development version used by the Alaveteli team (currently 3.4.7), you can create a `.ruby-version` symlink with a target of `.ruby-version.example` to switch to that automatically in the project directory.
-
-## How to contribute
-
-If you find what looks like a bug:
-
-* Check the [GitHub issue tracker](http://github.com/mysociety/alaveteli/issues/)
-  to see if anyone else has reported issue.
-* If you don't see anything, create an issue with information on how to reproduce it.
-
-If you want to contribute an enhancement or a fix:
-
-* Fork the project on GitHub.
-* Make a topic branch from the develop branch.
-* Make your changes with tests.
-* Commit the changes without making changes to any files that aren't related to your enhancement or fix.
-* Send a pull request against the develop branch.
-
-Looking for the latest stable release? It's on the
-[master branch](https://github.com/mysociety/alaveteli/tree/master).
-
-We have some more notes for developers [on the project site](http://alaveteli.org/docs/developers/).
-
-## Examples
-
-* [WhatDoTheyKnow](https://www.whatdotheyknow.com)
-* [KiMitTud](http://kimittud.atlatszo.hu)
-* [Informace Pro Všechny](http://www.infoprovsechny.cz)
-* [fyi.org.nz](https://fyi.org.nz)
-* [RightToKnow](https://www.righttoknow.org.au)
-
-See more at [alaveteli.org](http://alaveteli.org/deployments/).
-
-## Acknowledgements
-
-Thanks to [Browserstack](https://www.browserstack.com/) who let us use their
-web-based cross-browser testing tools for this project.
-
-This product includes GeoLite data created by MaxMind, available from
-<a href="http://www.maxmind.com">http://www.maxmind.com</a>.
+翻訳・スクリプトは Alaveteli 本体と同じ AGPL-3.0 で提供します。翻訳の著作権は株式会社エクスブリッジ（小嶋 篤）に帰属し、本家プロジェクトへの取り込みを妨げません。

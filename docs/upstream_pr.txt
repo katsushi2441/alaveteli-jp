@@ -1,0 +1,1 @@
+pull request create failed: GraphQL: No commits between mysociety:develop and katsushi2441:ja-locale (createPullRequest)

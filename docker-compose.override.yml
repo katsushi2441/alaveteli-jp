@@ -1,0 +1,5 @@
+# alaveteli-jp: 日本語ロケール検証用。ポートは 18383（3000 は他サービスが使用中）
+services:
+  app:
+    ports: !override
+      - "18383:3000"
