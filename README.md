@@ -6,7 +6,7 @@
 - `docker-compose.override.yml` — 公式の開発用 Docker にポートを足したもの
 - `scripts/translate_po_gemma.py` — 未訳エントリをローカルLLM（gemma4）で訳し、プレースホルダ不一致を不採用にする翻訳スクリプト
 
-本家への翻訳提案は mySociety の方針どおり Transifex 経由が正式ルートです。あわせて本リポジトリの `jp` ブランチから Pull Request を出しています。本家に取り込まれた分は本家の翻訳が正となり、本リポジトリは差分の保守にとどめます。
+本家への翻訳提案は mySociety の方針どおり Transifex 経由が正式ルートです。あわせて本家へ Pull Request #9527 を出しています。本家に取り込まれた分は本家の翻訳が正となり、本リポジトリは差分の保守にとどめます。
 
 **本リポジトリは mySociety および Alaveteli プロジェクトとは無関係の非公式なものです。** 日本の情報公開法・各自治体の情報公開条例に沿った運用は、導入する団体の責任で行ってください。
 
@@ -20,7 +20,13 @@ cd alaveteli-jp
 ./docker/server
 ```
 
-`http://<ホスト>:18383/` で日本語の Alaveteli が開きます。
+`http://<ホスト>:18383/` で日本語の Alaveteli が開きます（翻訳を差し替えたら `docker compose restart app sidekiq`）。
+
+![日本語化したトップページ](docs/screenshots/top.png)
+
+## 導入キット
+
+手順書・落とし穴・AI指示書を1つにした導入キット（5,500円税込）: https://kappstore.exbridge.jp/app.php?id=025aa9bee5dd411e
 
 ## 解説記事
 
