@@ -1,7 +1,13 @@
-# alaveteli-dev への投稿（下書き・未送信）
+# alaveteli-dev への投稿（**送信済み** 2026-09-15）
 
-宛先: https://groups.google.com/g/alaveteli-dev
-※ 公開アーカイブに永久に残ります。送る前に内容をご確認ください。
+宛先: alaveteli-dev@googlegroups.com（https://groups.google.com/g/alaveteli-dev）
+差出人: katsushi2441@gmail.com（対外メールの決まり）
+送信済みトレイで確認済み。返事を待って、ja チームに入れてもらったら app.po を投入する。
+
+**経緯**: 本家PR #9527 は 2026-09-14 にマージされずクローズ。拒否ではなく
+「翻訳は Transifex から入れてほしい」という手続きの指示（garethrees）。
+Transifex は**企業メール必須**だったので info@exbridge.jp で登録（ユーザー名 exbridge）。
+GitHub は katsushi2441 で別名になるため、同一人物と分かる一文を本文に入れてある。
 
 ---
 
@@ -29,7 +35,8 @@ native reviewer rather than risk broken markup.
 
 My question: the translation docs say to ask here about a Transifex account. Could someone
 add me to the Japanese team on https://app.transifex.com/mysociety/alaveteli/ , or tell me
-the right way to request it? My Transifex username is **katsushi2441** (same as GitHub).
+the right way to request it? My Transifex username is **exbridge** (I opened the PR as **@katsushi2441** on GitHub —
+same person; Transifex wanted a company address so I signed up with our company one).
 
 On the other question from the PR thread — no, we are not running an Alaveteli instance in
 Japan yet. Japan has a national FOI law (行政機関情報公開法) and prefectural ordinances, but
