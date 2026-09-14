@@ -48,3 +48,7 @@
 
 /config/credentials.yml.enc
 /config/master.key
+
+# 実行ログと中間物はリポジトリに入れない（2026-09-14 に混ぜてしまった）
+*.log
+__pycache__/
